@@ -107,7 +107,10 @@ button {
 button:disabled {
     background-color: gray;
 }
-
+footer {
+    position: absolute;
+    bottom: 0;
+}
 @media screen and (max-width: 1250px) {
 
     h1 {
