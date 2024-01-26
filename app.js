@@ -13,15 +13,15 @@ function verificarChute() {
     let chute = document.querySelector('input').value;
     if (chute == numeroSecreto) {
         let palavraTentativa = tentativas == 1 ? "tentativa" : "tentativas";
-        let mensagemTentativa = `Voce descobriu o numero secreto com ${tentativas} ${palavraTentativa}.`;
-        exibirTextoNaTela('h1', 'Acertou!');
+        let mensagemTentativa = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}.`;
+        exibirTextoNaTela('h1', 'Parabéns, você acertou o número secreto!');
         exibirTextoNaTela('p', mensagemTentativa);
         document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
         if (chute > numeroSecreto) {
-            exibirTextoNaTela('p', 'O numero secreto e menor.');
+            exibirTextoNaTela('p', 'Você errou, o número secreto e menor.');
         } else {
-            exibirTextoNaTela('p', 'O numero secreto e maior.');
+            exibirTextoNaTela('p', 'Você errou, o número secreto e maior.');
         }
         tentativas++;
         limparCampo();
@@ -59,8 +59,8 @@ function reiniciarJogo() {
 }
 
 function exibirMensagemInicial() {
-    let mensagem = `Escolha um numero entre 1 e ${qtdMax}`;
-    exibirTextoNaTela('h1', 'Jogo do Numero Secreto');
+    let mensagem = `Escolha um número entre 1 e ${qtdMax}`;
+    exibirTextoNaTela('h1', 'Jogo do Número Secreto');
     exibirTextoNaTela('p', mensagem);
 }
 exibirMensagemInicial();
