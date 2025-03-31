@@ -182,7 +182,7 @@ footer {
 @media screen and (max-width: 1250px) {
 
     h1 {
-        font-size: 50px;
+        font-size: 2em;
     }
 
     .container__botao {
@@ -200,15 +200,16 @@ footer {
 
     .container__conteudo {
         display: block;
-        position: inherit;
+        /*position: inherit;*/
     }
 
     .container__informacoes {
-        padding: .3rem
+        padding: 2rem;
+        width: 100%;
     }
     .meio {
-        width: 212px;
-        grid-template-columns: auto auto auto auto;
+        width: auto;
+        /*grid-template-columns: auto auto auto auto;*/
     } 
     .sorteado {
         margin-left: 4px;
@@ -220,26 +221,38 @@ footer {
         width: 35%;
     }
 
+    .container__input {
+        width: 50%;
+    }
+
+    .container__botoes {
+        width: 70%;
+    }
+
     .container {
-        width: auto;
+        width: 85%;
+        /*width: auto;
         height: 100%;
-        padding: 1em;
+        padding: 1em;*/
     }
 
     .container__conteudo {
-        display: flex;
-        position: inherit;
+        display: block;
+        /*position: inherit;*/
     }
     .sorteado {
         margin-left: 7px;
     }
     .centerMeio {
-        height: 53vh;
+        /*height: 53vh;*/
     }
     .meio {
-        width: 100%;
-        height: 53vh;
+        display: flex;
+        flex-wrap: wrap;
         overflow-y: auto;
-        grid-template-columns: auto auto auto;
+        margin-left: 1.5em;
+    }
+    .showChute {
+        width: auto;
     }
 }
