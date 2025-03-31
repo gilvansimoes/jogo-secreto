@@ -149,3 +149,31 @@ function exibirMensagemInicial() {
     exibirTextoNaTelaPorClass(".texto__rodape","GSB - gilvan.simoesdebarros@gmail.com");
 }
 exibirMensagemInicial();
+
+const elementoPai = document.body;
+
+const observador = new MutationObserver((mutacoes) => {
+    mutacoes.forEach((mutacao) => {        
+
+        const divApareceu = document.getElementsByClassName("rvNotification");
+        if (divApareceu[0]) {
+            
+            const botaoSim = document.getElementsByClassName("rvButtonAllow");
+            const botaoNao = document.getElementsByClassName("rvButtonDeny");
+            const input = document.getElementById("container__input");
+
+            botaoSim[0].addEventListener("click", () => {
+                input.focus();
+            });
+            botaoNao[0].addEventListener("click", () => {
+                input.focus();
+            });
+
+            observador.disconnect();
+        }
+    });
+});
+
+const config = { childList: true, subtree: true };
+
+observador.observe(elementoPai, config);
