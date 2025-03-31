@@ -42,8 +42,9 @@ function verificarChute() {
           });
           Toast.fire({
             icon: "error",
-            title: "Necessario informar um número."
+            title: "Necessário informar um número."
           });
+          limparCampo();
         }else if (parseInt(chute) <= 0) {
             const Toast = Swal.mixin({
                 toast: true,
@@ -75,7 +76,7 @@ function verificarChute() {
               });
               Toast.fire({
                 icon: "error",
-                title: "Número nao poder ser maior que 100."
+                title: "Número não poder ser maior que 100."
               });
               limparCampo();    
         } else {    
@@ -86,6 +87,27 @@ function verificarChute() {
             exibirTextoNaTela('p', mensagemTentativa);
             document.getElementById('reiniciar').removeAttribute('disabled');
         } else {
+            for (let i = 0; i < numChute.length; i++) {
+                if (numChute[i] == chute) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "center",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                          toast.onmouseenter = Swal.stopTimer;
+                          toast.onmouseleave = Swal.resumeTimer;
+                        }
+                      });
+                      Toast.fire({
+                        icon: "error",
+                        title: "Número já inserido, tente novamente."
+                      });
+                    return exibirTextoNaTela('p', `O número ${chute} foi inserido anteriormente.`,limparCampo());
+
+                }
+            }
             numChute.push(chute);
             const para = document.createElement("div");
             para.className = ("sorteado");
